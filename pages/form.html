@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/img/alert.png" alt="Logo Eu Te Avisei" class="logo-img">
+            </a>
+            <a href="../index.html" class="logo-text">TeAvisei</a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#como-funciona">Sobre</a>
+            <a href="../index.html#fale-conosco">Contato</a>
+            <a href="form.html" class="sign-up">Quero criar meu site</a>
+        </nav>
+
+        <div class="menu-icon">
+            <button onclick="menuShow()"><img class="icon" src="../assets/img/mobilemenu.png"></button>
+        </div>
+            <div class="menu">
+                <ul>
+                <li> <a href="../index.html">Home</a></li>
+                <li> <a href="../index.html#como-funciona">Sobre</a></li>
+                <li> <a href="../index.html#fale-conosco">Contato</a></li>
+                <li> <a href="form.html">Quero criar meu site</a></li>
+            </ul>
+            </div>
+
+
+
+
+
+    </header>
+
+    <div class="plan-options">
+        <button class="botaopreco" onclick="exibirFormulario('basico')">Plano Eu Avisei - R$9,90</button>
+        <button class="botaopreco" onclick="exibirFormulario('recomendado')">Plano Vai dar M* - R$17,90</button>
+        <button class="botaopreco" onclick="exibirFormulario('completo')">Plano DUVIDO! - R$25,90</button>
+    </div>
+
+    <div class="form-and-text-container">
+        <!-- Formulário do Plano Básico -->
+        <div id="form-basico" class="form-section active">
+            <form id="form-casal-basico" enctype="multipart/form-data" onsubmit="criarContador(event, 'basico')">
+                <label for="nome-basico">Nome:</label>
+                <input type="text" id="nome-basico" name="nome" placeholder="Quem foi avisado" required>
+                <label for="email-basico">Email:</label>
+                <input type="email" id="email-basico" name="email" placeholder="Seu email" required>
+                <label for="data-aviso-basico">Data e horário em que você avisou:</label>
+                <input type="date" id="data-aviso-basico" name="dataHora" required>
+                <input type="time" id="hora-aviso-basico" name="hora" required>
+                <label for="mensagem-basico">Mensagem:</label>
+                <textarea id="mensagem-basico" name="mensagem" placeholder="Escreva aqui sua mensagem, seja descritivo!" required></textarea>
+                <label for="imagem-basico" class="custom-file-label">Escolher uma imagem</label>
+                <input type="file" id="imagem-basico" name="imagem-basico" accept="image/*" required>
+                <button type="submit">Gerar Contador</button>
+            </form>
+        </div>
+        
+        <!-- Formulário do Plano Recomendado -->
+        <div id="form-recomendado" class="form-section" style="display:none;">
+            <form id="form-casal-recomendado" enctype="multipart/form-data" onsubmit="criarContador(event, 'recomendado')">
+                <label for="nome-recomendado">Nome:</label>
+                <input type="text" id="nome-recomendado" name="nome" placeholder="Quem foi avisado" required>
+                <label for="email-recomendado">Email:</label>
+                <input type="email" id="email-recomendado" name="email" placeholder="Seu email" required>
+                <label for="data-aviso-recomendado">Data e horário em que você avisou:</label>
+                <input type="date" id="data-aviso-recomendado" name="dataHora" required>
+                <input type="time" id="hora-aviso-recomendado" name="hora" required>
+                <label for="mensagem-recomendado">Mensagem:</label>
+                <textarea id="mensagem-recomendado" name="mensagem" placeholder="Escreva aqui sua mensagem, seja descritivo!" required></textarea>
+                <label for="imagem-recomendado" class="custom-file-label">Escolher até 3 imagens</label>
+                <input type="file" id="imagem-recomendado" name="imagem-recomendado" accept="image/*" multiple required>
+                <button type="submit">Gerar Contador</button>
+            </form>
+        </div>
+        
+        <!-- Formulário do Plano Completo -->
+        <div id="form-completo" class="form-section" style="display:none;">
+            <form id="form-casal-completo" enctype="multipart/form-data" onsubmit="criarContador(event, 'completo')">
+                <label for="nome-completo">Nome:</label>
+                <input type="text" id="nome-completo" name="nome" placeholder="Quem foi avisado" required>
+                <label for="email-completo">Email:</label>
+                <input type="email" id="email-completo" name="email" placeholder="Seu email" required>
+                <label for="data-aviso-completo">Data e horário em que você avisou:</label>
+                <input type="date" id="data-aviso-completo" name="dataHora" required>
+                <input type="time" id="hora-aviso-completo" name="hora" required>
+                <label for="mensagem-completo">Mensagem:</label>
+                <textarea id="mensagem-completo" name="mensagem" placeholder="Escreva aqui sua mensagem, seja descritivo!" required></textarea>
+                <label for="video-completo">Link para vídeo no YouTube:</label>
+                <input type="url" id="video-completo" name="video" placeholder="https://www.youtube.com/watch?v=ID-do-video" required>
+                <label for="imagem-completo" class="custom-file-label">Escolher até 5 imagens</label>
+                <input type="file" id="imagem-completo" name="imagem-completo" accept="image/*" multiple required>
+                <button type="submit">Gerar Contador</button>
+            </form>
+        </div>
+
+        <div class="text">
+            <h1><b>Falta pouco para o registro da sua sabedoria</b></h1>
+            <p>Escolha o plano ideal para você. Informe quem você avisou, quando e sobre o quê. Com todos os campos preenchidos, você poderá gerar seu contador personalizado!</p>
+            <ul>
+                <li><strong>Eu Avisei -</strong> 6 meses de acesso, 1 imagem, contador dinâmico.</li>
+                <li><strong>Vai dar m* -</strong> 1 ano de acesso, 3 imagens, contador dinâmico.</li>
+                <li><strong>DUVIDO! -</strong> Acesso permanente, 5 imagens, contador dinâmico, vídeo de sua escolha.</li>
+            </ul>
+            <p>Para ter acesso ao gerador, você deve acessar o email informado.</p>
+            <img src="../assets/gif/pix.gif" class="gif-pix">
+        </div>
+    </div>
+
+
+
+<script src="./scripts/detectarrolagem.js"></script>
+<script src="../scripts/menu.js"></script>
+
+</body>
+</html>
